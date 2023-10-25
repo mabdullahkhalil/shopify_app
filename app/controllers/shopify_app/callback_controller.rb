@@ -127,7 +127,7 @@ module ShopifyApp
     def install_webhooks(session)
       return unless ShopifyApp.configuration.has_webhooks?
 
-      WebhooksManager.queue(session.shop, session.access_token)
+      WebhooksManager.create_webhooks(session: session)
     end
 
     def install_scripttags(session)
