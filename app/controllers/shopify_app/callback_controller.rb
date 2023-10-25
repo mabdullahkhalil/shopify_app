@@ -158,7 +158,7 @@ module ShopifyApp
     def install_webhooks(session)
       return unless ShopifyApp.configuration.has_webhooks?
 
-      WebhooksManager.queue(session.shop, session.access_token)
+      WebhooksManager.create_webhooks(session: session)
     end
 
     def perform_after_authenticate_job(session)
